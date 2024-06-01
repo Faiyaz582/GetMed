@@ -38,7 +38,7 @@ const Header = () => {
             <img src={logo} alt='' className='w-32 h-auto' />
           </div>
 
-          <div className='navigation hidden md:flex' ref={menuRef}>
+          <div className='hidden md:flex' ref={menuRef}>
             <ul className='menu flex items-center gap-[2.7rem]'>
               {navLink.map((link, index) => (
                 <li key={index}>
@@ -58,7 +58,7 @@ const Header = () => {
           </div>
 
           <div className='flex items-center gap-4'>
-            <div className="hidden md:block">
+            <div className="hidden">
               <Link to='/'>
                 <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
                   <img src={userImg} className='w-full rounded-full' alt="" />
@@ -66,7 +66,7 @@ const Header = () => {
               </Link>
             </div>
 
-            <Link to='/login'>
+            <Link to='/login' className='hidden md:block'>
               <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]'>
                 Login
               </button>
