@@ -25,7 +25,6 @@ const Home = () => {
 
             <button className="btn">Request an Appoinment</button>
 
-
           </div>
           <div className='mt-[30px] lg:mt-[70px] flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-[30px]'>
             <div>
@@ -171,3 +170,5 @@ const Home = () => {
 };
 
 export default Home
+
+//a change here just for a test!
