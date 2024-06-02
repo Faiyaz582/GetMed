@@ -5,12 +5,15 @@ import icon01 from '../assets/images/icon01.png'
 import icon02 from '../assets/images/icon02.png'
 import icon03 from '../assets/images/icon03.png'
 import featureImg from '../assets/images/featuring.png';
+import faqImg from '../assets/images/faq.png';
 import videoIcon from '../assets/images/video-icon.png';
 import avatarIcon from '../assets/images/avatar-icon.png';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import About from '../components/About/About';
 import ServiceList from '../components/Services/ServiceList';
+import DoctorList from '../components/Doctors/DoctorList';
+import FaqList from '../components/Faq/FaqList';
 
 
 const Home = () => {
@@ -189,7 +192,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/*service section er kaaj: start */}
+      {/*service section er kaaj: end */}
 
       {/*feature section:start*/}
 
@@ -244,8 +247,8 @@ const Home = () => {
                   Consultation
                 </div>
 
-                <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]"> 
-                 <img src={avatarIcon} alt="" />
+                <div className="flex items-center gap-[6px] lg:gap-[10px] mt-2 lg:mt-[18px]">
+                  <img src={avatarIcon} alt="" />
                   <h4 className="text-[10px] leading-3 lg:text-[16px] lg:leading-[22px] font-[700] text-headingColor">
                     John Doe
                   </h4>
@@ -259,6 +262,43 @@ const Home = () => {
 
 
       {/*feature section:end*/}
+      {/*our great doctors: start here*/}
+      <section>
+        <div className='container'>
+          <div className="xl:w-[470px] mx-auto">
+            <h2 className='heading text-center font-bold'>Our Great Doctors</h2>
+            <p className='text_para text-center'>Our team of highly skilled doctors is dedicated to providing exceptional medical care, combining expertise with compassion to ensure the best outcomes for our patients.
+            </p>
+          </div>
+
+          <DoctorList />
+        </div>
+      </section>
+
+      {/*our great doctors: ends here*/}
+
+      {/*faq section:start*/}
+
+      <section>
+        <div className="container">
+          <div className="flex justify-between gap-[50px] lg:gap-0">
+            <div className="w-1/2 hidden md:block">
+              <img src={faqImg} alt="" />
+            </div>
+
+
+            <div className="w-full md:w-1/2">
+              <h2 className="heading">
+                Most asked questions by our beloved patients
+              </h2>
+
+              <FaqList />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/*faq section:end*/}
+
 
 
     </>
