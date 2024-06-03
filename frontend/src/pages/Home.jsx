@@ -14,6 +14,9 @@ import About from '../components/About/About';
 import ServiceList from '../components/Services/ServiceList';
 import DoctorList from '../components/Doctors/DoctorList';
 import FaqList from '../components/Faq/FaqList';
+import Testimonial from '../components/Testimonial/Testimonial';
+
+
 
 
 const Home = () => {
@@ -298,6 +301,24 @@ const Home = () => {
         </div>
       </section>
       {/*faq section:end*/}
+
+      {/**Testimoial secrion: start* */}
+
+      <section>
+        <div className='container'>
+      <div className="xl:w-[470px] mx-auto">
+            <h2 className='heading text-center font-bold'>What our patients say</h2>
+            <p className='text_para text-center'>
+              Our team of highly skilled doctors is dedicated to providing exceptional medical care, combining expertise with compassion to ensure the best outcomes for our patients.
+            </p>
+          </div>
+
+          <Testimonial /> 
+          </div>
+          
+      </section>
+
+       {/**Testimoial secrion: end* */}
 
 
 
