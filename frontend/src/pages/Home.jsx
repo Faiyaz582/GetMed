@@ -31,7 +31,7 @@ const Home = () => {
                 <h1 className='text-[36px] leading[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px] '>
                   WE HELP PATIENTS TO LIVE A HEALTHY LIFE
 
-                </h1>
+                </h1> {/*changes */}
                 <p className='text_para '>
 
                   Our medical appointment webpage enhances your life by offering a seamless healthcare experience. Easily schedule appointments with top-rated doctors, access detailed provider profiles, and receive reminders to stay on top of your health. We're committed to making healthcare accessible and improving community well-being.
