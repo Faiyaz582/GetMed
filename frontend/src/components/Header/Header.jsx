@@ -6,7 +6,7 @@ import { BiMenu } from "react-icons/bi";
 
 const navLink = [
   { path: '/home', display: 'Home' },
-  { path: '/doctor', display: 'Find a Doctor' },
+  { path: '/doctors', display: 'Find a Doctor' },
   { path: '/services', display: 'Services' },
   { path: '/contact', display: 'Contact' }
 ];
