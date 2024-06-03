@@ -3,7 +3,7 @@ import { Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
-import patientAvatar from '../../assets/images/patient-avatar.png'
+import userAvatar from '../../assets/images/user.jpg'
 import { HiStar } from 'react-icons/hi'
 
 const Testimonial = () => {
@@ -32,7 +32,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-lg">
                         <div className='flex items-center gap-[13px]'>
-                            <img src={patientAvatar} alt=" " />
+                            <img src={userAvatar} alt=" " />
                             <div>
                                 <h4 className='text-[18px] leading-[30px] font-semibold text-headingColor'>
                                     Maliha Tasnim Sara
@@ -53,7 +53,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-lg">
                         <div className='flex items-center gap-[13px]'>
-                            <img src={patientAvatar} alt=" " />
+                            <img src={userAvatar} alt=" " />
                             <div>
                                 <h4 className='text-[18px] leading-[30px] font-semibold text-headingColor'>
                                     Marjan Binta Monir
@@ -74,7 +74,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-lg">
                         <div className='flex items-center gap-[13px]'>
-                            <img src={patientAvatar} alt=" " />
+                            <img src={userAvatar} alt=" " />
                             <div>
                                 <h4 className='text-[18px] leading-[30px] font-semibold text-headingColor'>
                                     Jannatur Raisa
@@ -95,7 +95,7 @@ const Testimonial = () => {
                 <SwiperSlide>
                     <div className="py-[30px] px-5 rounded-lg">
                         <div className='flex items-center gap-[13px]'>
-                            <img src={patientAvatar} alt=" " />
+                            <img src={userAvatar} alt=" " />
                             <div>
                                 <h4 className='text-[18px] leading-[30px] font-semibold text-headingColor'>
                                     Marjana Salauddin
@@ -111,6 +111,27 @@ const Testimonial = () => {
                         </div>
                         <p className='text-[16px] leading-7 mt-4 text-textColor font-[400]'>
                             All staffs and doctors are very friendly.</p>
+                    </div>
+                </SwiperSlide> 
+                <SwiperSlide>
+                    <div className="py-[30px] px-5 rounded-lg">
+                        <div className='flex items-center gap-[13px]'>
+                            <img src={userAvatar} alt=" " />
+                            <div>
+                                <h4 className='text-[18px] leading-[30px] font-semibold text-headingColor'>
+                                    Aiman Khan
+                                </h4>
+                                <div className='flex items-center gap-[2px]'>
+                                    <HiStar className='text-yellowColor w-[18px] h-5' />
+                                    <HiStar className='text-yellowColor w-[18px] h-5' />
+                                    <HiStar className='text-yellowColor w-[18px] h-5' />
+                                    <HiStar className='text-yellowColor w-[18px] h-5' />
+                                    <HiStar className='text-yellowColor w-[18px] h-5' />
+                                </div>
+                            </div>
+                        </div>
+                        <p className='text-[16px] leading-7 mt-4 text-textColor font-[400]'>
+                            The schedule went smoothly exactly on time!</p>
                     </div>
                 </SwiperSlide> 
 

@@ -187,7 +187,8 @@ const Home = () => {
         <div className="container">
           <div className="xl:w-[470px] mx-auto">
             <h2 className='heading text-center font-bold'>Our Medical Services</h2>
-            <p className='text_para text-center'>World class care for everyone. Our health care system offers unmatched, expert, health care
+            <p className='text_para text-center'>
+             From advanced cancer treatments to compassionate mental health support, our expert team is dedicated to your well-being. 
             </p>
           </div>
 
