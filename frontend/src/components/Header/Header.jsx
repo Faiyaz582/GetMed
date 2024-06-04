@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import logo from '../../assets/images/logo.png';
 import userImg from '../../assets/images/avatar-icon.png';
 import { NavLink, Link } from 'react-router-dom';
-import { BiMenu } from "react-icons/bi";
+import { BiMenu, BiX } from "react-icons/bi";
 
 const navLink = [
   { path: '/home', display: 'Home' },
@@ -22,11 +22,27 @@ const Header = () => {
       headerRef.current.classList.remove('sticky_header');
     }
   };
+  const handleLinkClick = () => {
+    menuRef.current.classList.remove('show_menu');
+  };
+  
 
   useEffect(() => {
     window.addEventListener('scroll', handleStickyHeader);
     return () => window.removeEventListener('scroll', handleStickyHeader);
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && !event.target.closest('.md\\:hidden')) {
+        menuRef.current.classList.remove('show_menu');
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
 
   const toggleMenu = () => menuRef.current.classList.toggle('show_menu');
 
@@ -80,6 +96,9 @@ const Header = () => {
       </div>
 
       <div className='navigation md:hidden' ref={menuRef}>
+        
+
+  
         <ul className='menu flex flex-col items-start gap-4'>
           {navLink.map((link, index) => (
             <li key={index}>
@@ -90,6 +109,7 @@ const Header = () => {
                     ? 'text-cyan-700 text-[25px] leading-7 font-bold '
                     : 'text-textColor text-[16px] leading-7 font-[500] hover:bg-cyan-700 hover:text-white px-3 py-2 rounded transition duration-300'
                 }
+                onClick={handleLinkClick}
               >
                 {link.display}
               </NavLink>
