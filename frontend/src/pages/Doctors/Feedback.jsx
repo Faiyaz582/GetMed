@@ -27,7 +27,7 @@ const Feedback = () => {
                             <img className='w-full' src={avatar} alt="" />
                         </figure>
                         <div>
-                            <h5 className='text-[16px] leading-6 text-primaryColor font-bold'>Ali Hasan</h5>
+                            <h5 className='text-[16px] leading-6 text-black font-bold'>Ali Hasan</h5>
                             <p className='text-[14px] leading-6 text-textColor'>
                                 {formateDate('02-14-2024')}
                             </p>
@@ -44,7 +44,7 @@ const Feedback = () => {
                 </div>
             </div>
              <div className='text-center'>
-                {!showFeedbackForm &&              <button className='btn' onClick={handleGiveFeedback} >
+                {!showFeedbackForm && <button className='btn' onClick={handleGiveFeedback} >
               Give Feedback
                 </button>}
 
