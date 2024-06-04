@@ -8,11 +8,11 @@ const DoctorAbout = () => {
         <h3 className='text-[20px] leading-[30px] text-headingColor font-semibold flex items-center gap-2'>
           About -
           <span className='text-irisBlueColor font-bold text-[24px] leading-9'>
-            Muhibur Rahman
+          Dr. Robert Bruce
           </span>
         </h3>
         <p className='text_para'>
-          Dr. Muhibur Rahman, a surgeon at XYZ Hospital, holds a degree in minimally invasive surgery. He is known for his dedication to patient care and expertise in advanced surgical techniques.
+        Dr. Robert Bruce, a surgeon at XYZ Hospital, holds a degree in minimally invasive surgery. He is known for his dedication to patient care and expertise in advanced surgical techniques.
         </p>
       </div>
       <div className='mt-12'>
