@@ -1,11 +1,17 @@
-import React from 'react'; 
+import { useState } from 'react'; 
 import avatar from '../../assets/images/avatar-icon.png';
 import { formateDate } from '../../utils/formateDate';
 import {AiFillStar} from 'react-icons/ai'
+import FeedbackForm from './FeedbackForm';
 
 
 
 const Feedback = () => {
+    console.log('Feedback component is being rendered');
+    const [showFeedbackForm,setShowFeedbackForm] = useState(false);
+    const handleGiveFeedback=()=>{
+        setShowFeedbackForm(true);
+    };
 
 
 
@@ -38,14 +44,13 @@ const Feedback = () => {
                 </div>
             </div>
              <div className='text-center'>
-             <button className='btn' >
+                {!showFeedbackForm &&              <button className='btn' onClick={handleGiveFeedback} >
               Give Feedback
-                </button>
-            </div>
-            
+                </button>}
 
-                
-                  
+            
+            </div>
+            {showFeedbackForm && <FeedbackForm/>}             
         </div>
     );
     
