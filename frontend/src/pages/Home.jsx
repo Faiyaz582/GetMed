@@ -110,7 +110,7 @@ const Home = () => {
 
                 </h2>
                 <p className='text-[16px] leading-7 text-textColor font-[400] mt-4 text-center'>
-                  World-class care for evryone. Our health system offer unmatched expert health care.
+                  Search for doctors according to your need.
                 </p>
                 <Link to='/doctors' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px0 mx-auto flex items-center justify-center group hover:bg-cyan-600 hover:border-none'>
                   <BsArrowRight className='group-hover:text-white w-6 h-5' />
@@ -129,7 +129,7 @@ const Home = () => {
 
                 </h2>
                 <p className='text-[16px] leading-7 text-textColor font-[400] mt-4 text-center'>
-                  Track the location
+                  Track the location of our hospital
 
                 </p>
                 <Link to='/doctors' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px0 mx-auto flex items-center justify-center group hover:bg-cyan-600 hover:border-none'>
@@ -149,7 +149,7 @@ const Home = () => {
 
                 </h2>
                 <p className='text-[16px] leading-7 text-textColor font-[400] mt-4 text-center'>
-                  World-class care for evryone. Our health system offer unmatched expert health care.
+                  Book your appointment now matching your schedule.
                 </p>
                 <Link to='/doctors' className='w-[44px] h-[44px] rounded-full border border-solid border-[#181A1E] mt-[30px0 mx-auto flex items-center justify-center group hover:bg-cyan-600 hover:border-none'>
                   <BsArrowRight className='group-hover:text-white w-6 h-5' />
