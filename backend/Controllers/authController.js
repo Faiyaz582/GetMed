@@ -7,20 +7,24 @@ import bcrypt from 'bcrypt'
 
 
 const generateToken = user => {
-    return jwt.sign ({id:user._id, role:user.role}, process.env.JWT_SECRET_key)
+    return jwt.sign ({id:user._id, role:user.role}, process.env.JWT_SECRET_KEY,
+        {
+            expiresIn: "200d",
+        }
+    );
 }
 
 export const register = async (req, res) => {
 
-    const {email, password, name, role, photo, gender} = req.body
+    const {email, password, name, role, photo, gender} = req.body;
 
     try {
         let user = null
         if (role==='patient'){
-            user= await User.findOne({email})
+            user= await User.findOne({email});
         }
         else if (role==='doctor'){
-            user=await Doctor.findOne ({email})
+            user=await Doctor.findOne ({email});
         }
 
         // check if the user exists:
@@ -29,8 +33,8 @@ export const register = async (req, res) => {
         }
 
         //hash password
-        const salt = await bcrypt.genSalt(10)
-        const hashPassword = await bcrypt.hash (password, salt)
+        const salt = await bcrypt.genSalt(10);
+        const hashPassword = await bcrypt.hash (password, salt);
 
         if (role==='patient'){
             user = new User ({
@@ -40,7 +44,7 @@ export const register = async (req, res) => {
                 photo,
                 gender,
                 role
-            })
+            });
         }
 
         if (role==='doctor'){
@@ -51,7 +55,7 @@ export const register = async (req, res) => {
                 photo,
                 gender,
                 role
-            })
+            });
         }
 
         await user.save()
@@ -69,12 +73,12 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
 
-    const {email, password} = req.body
+    const {email} = req.body;
 
     try {
 
         let user = null
-        const patient = await User.fineOne ({email})
+        const patient = await User.findOne ({email})
         const doctor = await Doctor.findOne ({email})
 
         if (patient){
@@ -90,16 +94,32 @@ export const login = async (req, res) => {
         }
 
         //compare passsword
-        const isPasswordMatch = await bcrypt.compare(password, user.password)
+        const isPasswordMatch = await bcrypt.compare
+        (
+            req.body.password, 
+            user.password
+            // password, user.password
+            );
 
         if(!isPasswordMatch){
             return res.status (400).json({status:false, message:"Invalid credential"}); 
         }
+        // const isPasswordMatch = await bcrypt.compare(password, user.password);
 
         //get token
-        const token = generateToken (user)
+        const token = generateToken (user);
+
+        const {password, role, appointments, ...rest} = user._doc //ei line e jhamela hoite pare? checck later
+
+        res
+        .status (200)
+        .json({status: true, message:"Successfully logged in", token, data:{...rest}, role }); 
 
     }catch (err){
-        
+        res
+        .status (500)
+        .json({status:false, message:"Failed to login"}); 
     }
 };
+
+//crypto.randomBytes(256).toString('base64')
