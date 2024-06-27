@@ -83,7 +83,7 @@ const Header = () => {
             </div>
 
             <Link to='/login' className='hidden md:block'>
-              <button className='bg-cyan-700 py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]'>
+              <button className='bg-cyan-700 py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px] hover:bg-[#6fb88c] hover:text-teal-800 transition duration-300'>
                 Login
               </button>
             </Link>
