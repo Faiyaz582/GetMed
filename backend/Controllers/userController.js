@@ -1,72 +1,65 @@
 import User from "../models/UserSchema.js";
 
-export const updateUser = async (req,res)=>{
-    const id = req.params.id;
+export const updateUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const updateUser = await User.findByIdAndUpdate(
+      id,
+      { $set: req.body },
+      { new: true }
+    );
 
-    try{
-
-        const updateUser = await User.findByIdAndUpdate (id, {$set:req.body}, {new:true})
-
-        res.status(200).json({
-            success:true, 
-            message: 'Successfully updated', 
-            data:updateUser
-        });
-
-    } catch (err){
-        res.status(500).json({success:false, message: 'Failed to update'})
-    }
+    res.status(200).json({
+      success: true,
+      message: "Successfully updated",
+      data: updateUser,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to update" });
+  }
 };
-export const deleteUser = async (req,res)=>{
-    const id = req.paramas.id
 
-    try{
+export const deleteUser = async (req, res) => {
+  const { id } = req.params;
 
-        await User.findByIdAndDelete (id, 
-            
-        );
+  try {
+    await User.findByIdAndDelete(id);
 
-        res.status(200).json({
-            success:true, 
-            message: 'Successfully deleted', 
-            data:updateUser
-        });
-
-    } catch (err){
-        res.status(500).json({success:false, message: 'Failed to delete'})
-    }
+    res.status(200).json({
+      success: true,
+      message: "Successfully deleted",
+      data: updateUser,
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Failed to delete" });
+  }
 };
-export const getSingleUser = async (req,res)=>{
-    const id = req.paramas.id
 
-    try{
-        const user = await User.findById (id, 
+export const getSingleUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id);
 
-        );
-
-        res.status(200).json({
-            success:true, 
-            message: 'User found', 
-            data:user, 
-        });
-
-    } catch (err){
-        res.status(404).json({success:false, message: 'User not found'})
-    }
+    res.status(200).json({
+      success: true,
+      message: "User found",
+      data: user,
+    });
+  } catch (err) {
+    res.status(404).json({ success: false, message: "User not found" });
+  }
 };
-export const getAllUser = async (req,res)=>{
-    const id = req.paramas.id
 
-    try{
-        const users = await User.find ({});
+export const getAllUser = async (req, res) => {
+  try {
+    const users = await User.find();
 
-        res.status(200).json({
-            success:true, 
-            message: 'User found', 
-            data:users, 
-        });
-
-    } catch (err){
-        res.status(404).json({success:false, message: 'Not found'})
-    }
+    res.status(200).json({
+      success: true,
+      message: "User found",
+      data: users,
+    });
+  } catch (err) {
+    res.status(404).json({ success: false, message: "Not found" });
+  }
 };
