@@ -35,6 +35,7 @@ export const deleteUser = async (req, res) => {
   }
 };
 
+
 export const getSingleUser = async (req, res) => {
   const { id } = req.params;
   try {
@@ -49,6 +50,7 @@ export const getSingleUser = async (req, res) => {
     res.status(404).json({ success: false, message: "User not found" });
   }
 };
+
 
 export const getAllUser = async (req, res) => {
   try {

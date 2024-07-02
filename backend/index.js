@@ -10,6 +10,7 @@ import { log } from "./middlewares/logger.js";
 dotenv.config();
 
 const app = express();
+
 const port = process.env.PORT || 8000;
 
 const corsOptions = {
@@ -28,7 +29,9 @@ mongoose
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors(corsOptions));
+
 app.use(log);
+
 
 app.get("/", (req, res) => {
   res.send("Api is working");
