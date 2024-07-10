@@ -34,6 +34,9 @@ app.use(cors(corsOptions));
 
 app.use(log);
 
+console.log("JWT_SECRET_KEY:", process.env.JWT_SECRET_KEY);
+
+
 
 app.get("/", (req, res) => {
   res.send("Api is working");
