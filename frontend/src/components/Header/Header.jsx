@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useContext } from 'react';
 import logo from '../../assets/images/logo.png';
-import userImg from '../../assets/images/avatar-icon.png';
 import { NavLink, Link } from 'react-router-dom';
 import { BiMenu, BiX } from "react-icons/bi";
+import { AuthContext } from '../../context/authContext';
 
 const navLink = [
   { path: '/home', display: 'Home' },
@@ -14,6 +14,7 @@ const navLink = [
 const Header = () => {
   const headerRef = useRef(null);
   const menuRef = useRef(null);
+  const { user, role, token } = useContext(AuthContext);
 
   const handleStickyHeader = () => {
     if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
@@ -22,15 +23,16 @@ const Header = () => {
       headerRef.current.classList.remove('sticky_header');
     }
   };
+
   const handleLinkClick = () => {
     menuRef.current.classList.remove('show_menu');
   };
-  
 
   useEffect(() => {
     window.addEventListener('scroll', handleStickyHeader);
     return () => window.removeEventListener('scroll', handleStickyHeader);
   }, []);
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target) && !event.target.closest('.md\\:hidden')) {
@@ -42,7 +44,6 @@ const Header = () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-  
 
   const toggleMenu = () => menuRef.current.classList.toggle('show_menu');
 
@@ -51,11 +52,11 @@ const Header = () => {
       <div className="container">
         <div className='flex items-center justify-between'>
           <div>
-            <img src={logo} alt='' className='w-32 h-auto' />
+            <img src={logo} alt='Logo' className='w-32 h-auto' />
           </div>
 
-          <div className='hidden md:flex' ref={menuRef}>
-            <ul className='menu flex items-center gap-[2.7rem]'>
+          <div className='hidden md:flex'>
+            <ul className='menu flex items-center gap-[2.7rem]' ref={menuRef}>
               {navLink.map((link, index) => (
                 <li key={index}>
                   <NavLink
@@ -74,19 +75,21 @@ const Header = () => {
           </div>
 
           <div className='flex items-center gap-4'>
-            <div className="hidden">
-              <Link to='/'>
-                <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
-                  <img src={userImg} className='w-full rounded-full' alt="" />
-                </figure>
+            {token && user ? (
+              <div>
+                <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`} className="flex items-center space-x-2 bg-teal-800 px-4 py-0.1 rounded leading-9">
+                  <figure className='w-[50px] h-[50px] rounded-full cursor-pointer overflow-hidden leading-9'>
+                    <img src={user?.photo} className='w-full h-full ' />
+                  </figure>
+                </Link>
+              </div>
+            ) : (
+              <Link to='/login' className='hidden md:block'>
+                <button className='bg-cyan-700 py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px] hover:bg-[#6fb88c] hover:text-teal-800 transition duration-300'>
+                  Login
+                </button>
               </Link>
-            </div>
-
-            <Link to='/login' className='hidden md:block'>
-              <button className='bg-cyan-700 py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px] hover:bg-[#6fb88c] hover:text-teal-800 transition duration-300'>
-                Login
-              </button>
-            </Link>
+            )}
 
             <span className='md:hidden' onClick={toggleMenu}>
               <BiMenu className='w-6 h-6 cursor-pointer' />
@@ -96,9 +99,6 @@ const Header = () => {
       </div>
 
       <div className='navigation md:hidden' ref={menuRef}>
-        
-
-  
         <ul className='menu flex flex-col items-start gap-4'>
           {navLink.map((link, index) => (
             <li key={index}>
