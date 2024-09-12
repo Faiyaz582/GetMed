@@ -81,6 +81,7 @@ const Header = () => {
                   <figure className='w-[50px] h-[50px] rounded-full cursor-pointer overflow-hidden leading-9'>
                     <img src={user?.photo} className='w-full h-full ' />
                   </figure>
+                  <h2 className='text-white font-semibold text-xs'>{user?.name}</h2>
                 </Link>
               </div>
             ) : (
