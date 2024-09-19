@@ -1,5 +1,7 @@
 import { useEffect,useState } from "react"
 import { token } from "../config"
+console.log("token:",token);
+
 
 
 const useFeychData = (url) => {
@@ -14,7 +16,7 @@ const useFeychData = (url) => {
         setLoading(true);
 
         try{
-            
+                           
                 const res = await fetch(url,{
                     headers:{Authorization :`Bearer ${token}`}
                 });
