@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai"
 import uploadImageToCloudinary from './../../utils/uploadCloudinary'
 import {BASE_URL, token} from './../../config'
 import {toast} from 'react-toastify'
 
-const Profile = (doctorData) => {
+const Profile = ({doctorData}) => {
 
     const [FormData, setFormData] = useState({
         name: '',
@@ -17,18 +17,32 @@ const Profile = (doctorData) => {
         gender: '',
         specialization: '',
         ticketPrice: 0,
-        qualifications: [
-            { startingDate: '', 
-                endingDate: '', 
-                degree: '', 
-                university: '' },
-        ],
-        experiences: [{ startingDate: '', endingDate: '', position: '', hospital: '' }],
-        timeSlots: [{ day: '', startingTime: '', endingTime: '' }],
+        qualifications: [] ,
+        experiences: [],
+        timeSlots: [],
         about:'',
         photo:null,
 
-    })
+    });
+
+    useEffect(()=>{
+        setFormData({
+            name:doctorData?.name,
+            email: doctorData?.email,
+            
+            phone:doctorData?.phone,
+            bio: doctorData?.bio,
+            gender:doctorData?.gender,
+            specialization: doctorData?.specialization,
+            ticketPrice:doctorData?.ticketPrice,
+            qualifications:doctorData?.qualifications ,
+            experiences:doctorData?.experiences,
+            timeSlots:doctorData?.timeSlots,
+            about:doctorData?.about,
+            photo:doctorData?.photo,
+    
+        })
+    },[doctorData])
 
     //here is a change
 
@@ -53,7 +67,7 @@ const Profile = (doctorData) => {
         try {
            const res = await fetch (`${BASE_URL}/doctors/${doctorData._id}`,{
             method:'PUT',
-            header:{
+            headers:{
                 'content-type': 'application/json',
                 Authorization: `Bearer ${token}`
 
