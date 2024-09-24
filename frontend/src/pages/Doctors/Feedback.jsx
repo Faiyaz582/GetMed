@@ -22,6 +22,7 @@ const Feedback = ({reviews,totalRating}) => {
                 </h4>
                 {reviews && reviews.length > 0 ? (
                     reviews.map((review, index) => (
+                        console.log(review.user),
                         <div key={index} className='flex justify-between gap-10 mb-[30px]'>
                             <div className='flex gap-3'>
                                 <figure className='w-10 h-10 rounded-full'>
@@ -29,7 +30,7 @@ const Feedback = ({reviews,totalRating}) => {
                                 </figure>
                                 <div>
                                     <h5 className='text-[16px] leading-6 text-black font-bold'>
-                                        {review?.user?.name || "Anonymous"}
+                                        {review?.user?.name }
                                     </h5>
                                     <p className='text-[14px] leading-6 text-textColor'>
                                         {formateDate(review?.createdAt)}

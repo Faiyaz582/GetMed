@@ -40,7 +40,7 @@ const DoctorCard = ({ doctor }) => {
                         <img src={StarIcon} alt="" />{avgRating}
                     </span>
                     <span className='text-[14px] leading-6 lg:text-[16px] lg:leading-7 
-                    font-[400] text-textColor'> ({totalRating})                    </span>
+                    font-[400] text-textColor'> ({totalRating}) </span>
                 </div>
             </div>
 
