@@ -29,9 +29,9 @@ export const createReview=async (req,res)=>{
             $push:{reviews: savedReview._id}
         })
 
-        req.status(200).json({success:true, message:'Review submitted', data:savedReview})
+        res.status(200).json({success:true, message:'Review submitted', data:savedReview})
 
     } catch (err){
-        req.status(500).json({success:flase, message:err.message});
+        res.status(500).json({success:flase, message:err.message});
     }
 };

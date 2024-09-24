@@ -12,7 +12,7 @@ const convertTime = time=>{
             hours-=12
         }
     }
-    return hours.toString().padStart(2) +':'+ minutes.toString().padStart(2,'0') + '' + meridiem
+    return hours.toString().padStart(2,'0') +':'+ minutes.toString().padStart(2,'0') + '' + meridiem
 }
 
 export default convertTime
