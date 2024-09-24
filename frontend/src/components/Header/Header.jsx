@@ -77,11 +77,10 @@ const Header = () => {
           <div className='flex items-center gap-4'>
             {token && user ? (
               <div>
-                <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`} className="flex items-center space-x-2 bg-teal-800 px-4 py-0.1 rounded leading-9">
-                  <figure className='w-[50px] h-[50px] rounded-full cursor-pointer overflow-hidden leading-9'>
-                    <img src={user?.photo} className='w-full h-full ' />
+                <Link to={`${role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}`} className="flex items-center space-x-1 bg-teal-800 px-4 py-0.1 rounded-full leading-9   hover:bg-[#6fb88c] transition duration-300">
+                  <figure className='w-[2px] h-[50px] rounded-full cursor-pointer overflow-hidden leading-9'>                   
                   </figure>
-                  <h2 className='text-white font-semibold text-xs'>{user?.name}</h2>
+                  <h2 className='text-white font-bold text-xs flex items-center text-center justify-center '>PROFILE</h2>
                 </Link>
               </div>
             ) : (

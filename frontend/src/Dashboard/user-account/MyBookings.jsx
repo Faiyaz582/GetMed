@@ -22,7 +22,7 @@ const MyBookings = () => {
 
 
         </div> )} 
-        {!loading && !error && appoinments.length==0 && <h2 className="mt-5 text-center leading-7 text-[20px] font-semibold color-#008080 ">You Didn't book any doctor yet!</h2>}
+        {!loading && !error && appoinments.length==0 && <h2 className="mt-5 text-center leading-7 text-[20px] font-semibold color-#008080 ">You Didn't Book Any Doctor Yet!</h2>}
 
 
     </div>
